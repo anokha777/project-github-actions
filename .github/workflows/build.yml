@@ -1,0 +1,17 @@
+name: Test application
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch Code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install Dependancy
+        run: npm ci
+      - name: Run test
+        run: npm test
+        
